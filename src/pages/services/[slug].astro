@@ -20,12 +20,32 @@ const { Content } = await render(entry);
 const hasEnglish = hasEnglishSpoken(languages);
 
 const formattedWebsite = formatWebsite(website);
+
+const schemaTypes: Record<string, string> = {
+  barbers: "BarberShop",
+  "car-repair": "AutoRepair",
+  "bicycle-repair": "BicycleStore",
+};
+const schemaType = schemaTypes[category] || "LocalBusiness";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": schemaType,
+  name: title,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: address,
+  },
+  telephone: phone || undefined,
+  url: formattedWebsite || undefined,
+};
 ---
 
 <Layout
   title={title}
   description={`Details and newcomer hacks for ${title} (${formatCategory(category)})`}
 >
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   <div class="detail-container">
     <!-- Back Link -->
     <a href="/services" class="back-link" id="btn-back-to-directory">

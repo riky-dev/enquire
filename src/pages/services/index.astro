@@ -28,11 +28,21 @@ const categories = [...new Set(services.map((service) => service.data.category))
         <div class="filter-wrapper">
           <span class="filter-label">Filter by Category:</span>
           <div class="filter-buttons" role="group" aria-label="Category Filters">
-            <button class="filter-btn active" data-category="all" id="filter-btn-all">
+            <button
+              class="filter-btn active"
+              data-category="all"
+              id="filter-btn-all"
+              aria-pressed="true"
+            >
               All Services
             </button>
             {categories.map((cat) => (
-              <button class="filter-btn" data-category={cat} id={`filter-btn-${cat}`}>
+              <button
+                class="filter-btn"
+                data-category={cat}
+                id={`filter-btn-${cat}`}
+                aria-pressed="false"
+              >
                 {formatCategory(cat)}
               </button>
             ))}
@@ -107,8 +117,12 @@ const categories = [...new Set(services.map((service) => service.data.category))
   filterButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       // Remove active class from all buttons and add to the clicked one
-      filterButtons.forEach((b) => b.classList.remove("active"));
+      filterButtons.forEach((b) => {
+        b.classList.remove("active");
+        b.setAttribute("aria-pressed", "false");
+      });
       btn.classList.add("active");
+      btn.setAttribute("aria-pressed", "true");
 
       const selectedCategory = btn.getAttribute("data-category");
 

@@ -17,9 +17,33 @@ const { entry } = Astro.props;
 const { title, category, description, lastUpdated } = entry.data;
 
 const { Content } = await render(entry);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: title,
+  description: description,
+  image: new URL("/favicon.svg", Astro.url).href,
+  dateModified: lastUpdated,
+  datePublished: lastUpdated,
+  publisher: {
+    "@type": "Organization",
+    name: "Enquire",
+    logo: {
+      "@type": "ImageObject",
+      url: new URL("/favicon.svg", Astro.url).href,
+    },
+  },
+  author: {
+    "@type": "Organization",
+    name: "Enquire",
+  },
+  articleBody: entry.body,
+};
 ---
 
 <Layout title={title} description={description}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   <div class="detail-container">
     <!-- Back Link -->
     <a href="/guides" class="back-link" id="btn-back-to-guides">
