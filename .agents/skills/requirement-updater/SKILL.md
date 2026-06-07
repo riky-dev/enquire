@@ -1,13 +1,13 @@
 ---
 name: requirement-updater
-description: Guides the agent through a 5-phase workflow (Understand, Impact Analysis, Refactor Plan, Execute, Verify) for updating existing features and requirements in the PMF WebApp project.
+description: Guides the agent through a 5-phase workflow (Understand, Impact Analysis, Refactor Plan, Execute, Verify) for updating existing features and requirements.
 ---
 
 # Requirement Updater Skill
 
 ## Overview
 
-This skill implements an agentic workflow for evolving existing features and adapting to new requirements. Unlike the `feature-developer` skill, which builds new functionality, this skill focuses on surgical changes, impact analysis, and maintaining system integrity during refactoring or logic updates.
+This skill implements an agentic workflow for evolving existing features and adapting to new requirements. This skill focuses on surgical changes, impact analysis, and maintaining system integrity during refactoring or logic updates.
 
 ## Workflow Phases
 
@@ -36,5 +36,5 @@ Trigger this workflow whenever you need to modify existing logic, refactor code,
 
 - **Surgical Changes**: Prioritize minimal, high-impact edits over broad refactoring.
 - **Impact First**: Never start implementation before identifying all potential side effects.
-- **Test Integrity**: Always update existing tests before adding new ones for the changed behavior.
+- **Verification Integrity**: Always define how behavior will be validated (via build/diagnostics and manual verification) before implementing.
 - **Approval Gate**: Do NOT start implementation (Phase 4) until the plan (Phase 3) is approved.

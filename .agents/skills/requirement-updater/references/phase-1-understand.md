@@ -6,7 +6,7 @@ To define the specific "delta" between the current system behavior and the reque
 
 ## Actions
 
-1. **Gap Analysis**: Compare the current code/behavior (identified via `grep_search` and `read_file`) with the user's new prompt or requirements.
+1. **Gap Analysis**: Compare the current code/behavior (identified via `grep_search` and `view_file`) with the user's new prompt or requirements.
 2. **Identify Rationale**: Determine _why_ this change is requested (e.g., business logic update, UI refinement, bug fix in existing feature).
 3. **Draft Change Summary**: Document what stays, what goes, and what is added.
 
