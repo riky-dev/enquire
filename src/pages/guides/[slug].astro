@@ -1,8 +1,8 @@
 ---
 import { getCollection, render } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import Giscus from "../../components/Giscus.astro";
-import { guideCategoryIcons } from "../../categories";
+import Layout from "@layouts/Layout.astro";
+import Giscus from "@components/Giscus.astro";
+import { guideCategoryIcons } from "@/categories";
 
 export async function getStaticPaths() {
   const guides = await getCollection("guides");

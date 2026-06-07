@@ -1,15 +1,18 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import { guideCategories, guideCategoryIcons } from "../../categories";
+import Layout from "@layouts/Layout.astro";
+import { guideCategories, guideCategoryIcons } from "@/categories";
 
 const guides = await getCollection("guides");
 
 // Group guides by category
-const groupedGuides = guideCategories.reduce((acc, cat) => {
-  acc[cat] = guides.filter((guide) => guide.data.category === cat);
-  return acc;
-}, {} as Record<typeof guideCategories[number], typeof guides>);
+const groupedGuides = guideCategories.reduce(
+  (acc, cat) => {
+    acc[cat] = guides.filter((guide) => guide.data.category === cat);
+    return acc;
+  },
+  {} as Record<(typeof guideCategories)[number], typeof guides>,
+);
 
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
@@ -22,14 +25,15 @@ function formatDate(dateStr: string) {
 ---
 
 <Layout
-  title="Relocation Guides"
+  title="Guides"
   description="Step-by-step practical guides, cross-border tips, and CERN hacks for newcomers."
 >
   <div class="guides-container">
     <div class="guides-header">
-      <h1>Relocation Guides</h1>
+      <h1>Guides</h1>
       <p class="subtitle">
-        Step-by-step instructions, cross-border logistics, and practical CERN hacks curated by the community.
+        Step-by-step instructions, cross-border logistics, and practical CERN hacks curated by the
+        community.
       </p>
     </div>
 
@@ -48,11 +52,18 @@ function formatDate(dateStr: string) {
             if (catGuides.length === 0) return null;
 
             return (
-              <section class="category-section" aria-labelledby={`cat-${cat.replace(/\s+/g, "-").toLowerCase()}`}>
+              <section
+                class="category-section"
+                aria-labelledby={`cat-${cat.replace(/\s+/g, "-").toLowerCase()}`}
+              >
                 <div class="category-title-wrapper">
                   <span class="category-icon">{guideCategoryIcons[cat]}</span>
-                  <h2 class="category-title" id={`cat-${cat.replace(/\s+/g, "-").toLowerCase()}`}>{cat}</h2>
-                  <span class="category-count">{catGuides.length} {catGuides.length === 1 ? 'guide' : 'guides'}</span>
+                  <h2 class="category-title" id={`cat-${cat.replace(/\s+/g, "-").toLowerCase()}`}>
+                    {cat}
+                  </h2>
+                  <span class="category-count">
+                    {catGuides.length} {catGuides.length === 1 ? "guide" : "guides"}
+                  </span>
                 </div>
 
                 <div class="guides-grid">
@@ -64,12 +75,16 @@ function formatDate(dateStr: string) {
                     >
                       <div class="card-header">
                         <span class="category-tag">{guide.data.category}</span>
-                        <span class="update-date">Updated {formatDate(guide.data.lastUpdated)}</span>
+                        <span class="update-date">
+                          Updated {formatDate(guide.data.lastUpdated)}
+                        </span>
                       </div>
                       <h3 class="card-title">{guide.data.title}</h3>
                       <p class="card-description">{guide.data.description}</p>
                       <div class="card-footer">
-                        <span class="read-link">Read Guide <span class="arrow">→</span></span>
+                        <span class="read-link">
+                          Read Guide <span class="arrow">→</span>
+                        </span>
                       </div>
                     </a>
                   ))}
