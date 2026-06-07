@@ -6,7 +6,9 @@ While CERN provides official guides, they are often high-level, lack granular de
 
 ## Solution
 
-A centralized, collaborative, lightweight static website (built with Astro) that serves as a comprehensive onboarding companion and directory for CERN newcomers. The site will provide two main sections:
+A centralized, collaborative, lightweight static website (built with Astro) branded as **Enquire** (a reference to Tim Berners-Lee's original 1980 database system built at CERN) that serves as a comprehensive onboarding companion and directory for CERN newcomers. To ensure trademark safety while maintaining search relevance, the site will carry the tagline: *An unofficial relocation guide & directory for CERN newcomers*.
+
+The site will provide two main sections:
 1. **Interactive Directory**: Recommended local services structured by categories, with essential metadata (location, languages spoken) and community reviews.
 2. **Practical Step-by-Step Guides**: In-depth, community-curated guides covering arrival logistics (transportation), housing search strategies (Swiss vs. French side), and local admin setup (SIM cards, bank accounts, health insurance).
 
