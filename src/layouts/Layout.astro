@@ -48,7 +48,6 @@ const {
       <nav class="nav-container">
         <a href="/" class="logo" id="nav-logo"> Enquire </a>
         <div class="nav-links">
-          <a href="/" class="nav-link" id="nav-link-home">Home</a>
           <a href="/services" class="nav-link" id="nav-link-services">Services</a>
           <a href="/guides" class="nav-link" id="nav-link-guides">Guides</a>
           <a href="/suggest" class="nav-link" id="nav-link-suggest">Suggest</a>
@@ -62,7 +61,7 @@ const {
 
     <footer class="main-footer">
       <p class="footer-text">
-        &copy; {new Date().getFullYear()} Enquire. An unofficial community relocation guide for CERN newcomers.
+        An unofficial community relocation guide for CERN newcomers.<br />Made by <a href="https://riky.dev" target="_blank" rel="noopener noreferrer">riky.dev</a> and the community.
       </p>
     </footer>
   </body>
@@ -183,6 +182,12 @@ const {
     font-size: 0.85rem;
     color: var(--text-secondary);
     margin: 0;
+  }
+
+  .footer-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {
