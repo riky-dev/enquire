@@ -7,7 +7,7 @@ lastUpdated: "2026-06-07"
 
 Bringing a vehicle to the CERN area involves navigating customs, registration plates, and insurance rules across two countries.
 
-### Green Plates (Transit / Customs CD equivalent in France)
+## Green Plates (Transit / Customs CD equivalent in France)
 
 Registering a car on custom green plates (VAT/customs duty exempt) is highly bureaucratic.
 
@@ -15,7 +15,7 @@ Registering a car on custom green plates (VAT/customs duty exempt) is highly bur
 - **Warning**: During this transition, Swiss export plates might expire. You will be unable to drive unless French temporary CPI (WW/Pink) plates arrive.
 - **Insurers**: Major insurers like _AXA_ and _Allianz_ accept green plates.
 
-### UK Cars & Insurance
+## UK Cars & Insurance
 
 Expats bringing UK-plated cars to France face insurance limitations.
 
@@ -23,7 +23,7 @@ Expats bringing UK-plated cars to France face insurance limitations.
 - **FabFrenchInsurance** and the English-speaking branch of **Allianz** can provide full C3 cover for over a year on British plates.
 - **No Claims Bonus (NCB)**: Online quotes are very expensive (~900€). Going **in person** with paper proof of your UK No Claims Bonus can drop the price to ~500€-600€.
 
-### Driving Licenses
+## Driving Licenses
 
 Under a CERN legitimation card, you are **not required** to exchange your foreign driving license for a local one. It remains valid for the entire duration of your stay.
 

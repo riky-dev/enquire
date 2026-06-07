@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://riky-dev.github.io/enquire/sitemap-index.xml

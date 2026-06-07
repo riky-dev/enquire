@@ -4,11 +4,17 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
 }
 
 const {
   title,
   description = "An unofficial relocation guide & directory for CERN newcomers, interns, and students.",
+  ogImage,
+  ogType = "website",
+  canonicalUrl,
 } = Astro.props;
 ---
 
@@ -20,6 +26,22 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Enquire</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl || Astro.url.href} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl || Astro.url.href} />
+    <meta property="og:title" content={`${title} | Enquire`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage || new URL("/favicon.svg", Astro.url).href} />
+    <meta property="og:site_name" content="Enquire" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl || Astro.url.href} />
+    <meta name="twitter:title" content={`${title} | Enquire`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage || new URL("/favicon.svg", Astro.url).href} />
   </head>
   <body>
     <header class="main-header">
