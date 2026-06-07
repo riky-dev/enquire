@@ -1,12 +1,12 @@
 export const guideCategories = ["Getting Here", "Housing", "Settling In", "Admin"] as const;
 
-export type GuideCategory = typeof guideCategories[number];
+export type GuideCategory = (typeof guideCategories)[number];
 
 export const guideCategoryIcons: Record<GuideCategory, string> = {
   "Getting Here": "✈️",
-  "Housing": "🏠",
+  Housing: "🏠",
   "Settling In": "🤝",
-  "Admin": "📝",
+  Admin: "📝",
 };
 
 export const serviceCategories: Record<string, string> = {

@@ -2,26 +2,12 @@
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import { guideCategories, guideCategoryIcons } from "@/categories";
+import { formatDate, groupGuidesByCategory } from "@/utils/helpers";
 
 const guides = await getCollection("guides");
 
 // Group guides by category
-const groupedGuides = guideCategories.reduce(
-  (acc, cat) => {
-    acc[cat] = guides.filter((guide) => guide.data.category === cat);
-    return acc;
-  },
-  {} as Record<(typeof guideCategories)[number], typeof guides>,
-);
-
-function formatDate(dateStr: string) {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
+const groupedGuides = groupGuidesByCategory(guides, guideCategories);
 ---
 
 <Layout

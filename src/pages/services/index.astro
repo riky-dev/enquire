@@ -1,20 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import { serviceCategories } from "@/categories";
+import { formatCategory, hasEnglishSpoken } from "@/utils/helpers";
 
 const services = await getCollection("services");
 
 // Extract all unique categories
 const categories = [...new Set(services.map((service) => service.data.category))];
-
-function formatCategory(cat: string) {
-  if (serviceCategories[cat]) return serviceCategories[cat];
-  return cat
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
 ---
 
 <Layout
@@ -60,9 +52,7 @@ function formatCategory(cat: string) {
       ) : (
         <div class="services-grid" id="services-list">
           {services.map((service) => {
-            const hasEnglish = service.data.languages.some(
-              (lang) => lang.toLowerCase() === "english",
-            );
+            const hasEnglish = hasEnglishSpoken(service.data.languages);
 
             return (
               <a
