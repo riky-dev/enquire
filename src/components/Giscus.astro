@@ -6,15 +6,15 @@ interface Props {
   repoId?: string;
   category?: string;
   categoryId?: string;
-  mapping?: 'pathname' | 'url' | 'title' | 'og:title' | 'specific';
+  mapping?: "pathname" | "url" | "title" | "og:title" | "specific";
   term?: string;
-  strict?: '0' | '1';
-  reactionsEnabled?: '0' | '1';
-  emitMetadata?: '0' | '1';
-  inputPosition?: 'top' | 'bottom';
+  strict?: "0" | "1";
+  reactionsEnabled?: "0" | "1";
+  emitMetadata?: "0" | "1";
+  inputPosition?: "top" | "bottom";
   theme?: string;
   lang?: string;
-  loading?: 'lazy' | 'eager';
+  loading?: "lazy" | "eager";
 }
 
 const {
@@ -39,6 +39,7 @@ const {
 </div>
 
 <script
+  is:inline
   src="https://giscus.app/client.js"
   data-repo={repo}
   data-repo-id={repoId}
@@ -54,8 +55,7 @@ const {
   data-lang={lang}
   data-loading={loading}
   crossorigin="anonymous"
-  async
-></script>
+  async></script>
 
 <style>
   .giscus-wrapper {

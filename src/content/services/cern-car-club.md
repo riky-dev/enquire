@@ -11,7 +11,9 @@ website: "https://club-car.web.cern.ch"
 The CERN Car Club is a self-service workshop club located directly on the CERN Meyrin campus.
 
 ### DIY Facilities
+
 For a small membership fee, members gain access to professional tools, car lifts, and specialized equipment:
+
 - **Tyre-changing machines**
 - **Wheel balancing machines**
 
