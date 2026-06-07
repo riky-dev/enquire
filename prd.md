@@ -28,6 +28,53 @@ The website will leverage Markdown for easy content management, Giscus (GitHub D
 12. As a newly arrived intern, I want to know which mobile operators offer the best coverage inside CERN's underground areas and across the border, and how to get a SIM card quickly.
 13. As an international student/intern, I want a comparison of bank account options (Swiss Post, local banks, online banks like Revolut) and health insurance requirements, so I can set up my finances and coverage correctly.
 14. As a reader of a guide, I want to see comments/tips from other newcomers on that specific guide (e.g., "Bus 66 schedule changed"), so I get up-to-date community advice.
+15. As a newcomer living on the French side, I want to know what banking and currency conversion options are available to me, since some Swiss digital banks (e.g. Yuh) do not accept French addresses.
+16. As a bank customer, I want to understand how to handle requests from banks regarding Swiss or French Taxpayer Identification Numbers (TIN).
+17. As an international driver, I want to know how to exchange my foreign driving license, where to get lessons, and how to get car insurance for foreign-registered vehicles.
+18. As a car owner, I want to understand the steps and timelines for importing a Swiss used car to France using customs/green plates.
+19. As a traveler, I want to know the correct procedure if my Swiss legitimation card is lost or stolen abroad to avoid unnecessary bureaucratic travel.
+20. As a Uniqa health insurance policyholder, I want clear instructions on what is covered (e.g., glasses, dermatology, extreme sports rescue) and what documentation is required.
+21. As a resident on the French side, I want to know how to dispose of bulky furniture/waste without having to transport it to a déchetterie myself.
+22. As a campus commuter, I want to find helpful campus hacks such as where to find quiet phone boxes, how to locate showers, and where to rent free safety gear.
+
+## Expanded Directory & Guide Scope (from Community Feedback)
+
+To address real-world newcomer pain points, the initial content collections will be seeded with the following directories and guide topics:
+
+### 1. New Directory Categories & Seed Listings
+- **Barbers**: *Loïc & Lea (Saint-Genis)* - English-speaking and bookable online via Planity.
+- **Bicycle Repair/Shops**: *Bouticycle (Ferney-Voltaire)* (English-speaking, e-bike discounts) and *Culture Velo (Thoiry)*.
+- **Car Repair & Tyres**: *Feu Vert (Thoiry)*, *Autodistribution (Prévessin)*, and info on the *CERN Car Club* (DIY tyre mounting machines).
+- **Electronics & Console Repair**: *GSM Shop (Geneva)* and *iFixit* guides.
+- **Plumbing**: *ABC Plomberie* (French side, basic English spoken).
+- **Leisure & Sports**: *Totem (Bouldering)*, *Grimper.ch (Satigny)*, and *CERN Climbing Club*.
+- **Hiking Routes**: *Salève* (via public transit/cable car), *Crête de la Neige / Reculet* (access via Bus 68 from Sergy/Thoiry), and *Valserhône river routes* (via bus X33 to Bellegarde).
+
+### 2. Practical Step-by-Step Guides
+- **Cross-Border Banking & Currency**: 
+  - Compare bank accounts suitable for both Swiss and French residents (UBS, Dukascopy, Revolut).
+  - Explain how to use **Ibani** (CH IBAN with auto-conversion to EUR) and **Wise** to minimize exchange rate losses.
+- **TIN & AVS Numbers Demystified**:
+  - Step-by-step on finding your Swiss TIN (AVS number from Cards Service) and how to respond to bank requests if you live in France and don't have a French TIN yet.
+- **Avoiding Housing Deposit Scams & Dossier Prep**:
+  - Tips for negotiating deposits after contract signing, verifying agencies (e.g., BC Immobilier, Matera), and obtaining Swiss non-pursuit extracts.
+- **Legitimation Card Survival Guide**:
+  - Actionable advice for lost/stolen cards (e.g., why reporting a card as "lost" instead of "stolen" when abroad avoids a forced trip back for a police report).
+  - Guidelines for handling airlines/border control agents who do not recognize the card.
+- **Vehicle Importing, Driving Licensing, and Insurance**:
+  - Navigating green plates (CD/transit) with the CERN Mobility Center (including the 2-3 month waiting period).
+  - Exchanging driving licenses in Geneva/Pays de Gex, and taking tests (theory is available in English, practical is French-only).
+  - Insuring UK/foreign-plated cars in France (e.g., FabFrenchInsurance, Allianz).
+- **Getting the Most Out of Uniqa Health Insurance**:
+  - Clarifying that optical prescriptions must come from an ophthalmologist (not an optician) to be reimbursed.
+  - Getting medical necessity certificates for dermatological treatments.
+  - Recommending supplementary insurance (e.g., Austrian Alpine Club) for helicopter rescue and repatriation during mountain activities.
+- **Bulky Waste Disposal (France)**:
+  - Instructions on scheduling free curbside bulky item pick-ups in Pays de Gex (demarchesdechets.paysdegex.fr).
+- **CERN Campus Hacks**:
+  - Locating quiet phone boxes on campus (e.g., Library booths).
+  - Locating showers on campus using the `maps.cern.ch` sanitary filters.
+  - Borrowing free helmets/vests from the CERN Mobility Center.
 
 ## Implementation Decisions
 
