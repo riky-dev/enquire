@@ -1,14 +1,15 @@
 ## Problem Statement
 
-Short-term interns and newcomers at CERN face significant challenges when relocating to the Geneva/Pays de Gex area. Beyond finding everyday services (barbers, phone repair, mechanics, etc.) that speak English, they struggle with the complex logistics of moving to a cross-border region. This includes figuring out how to get to Geneva/CERN, navigating the rental housing market on the Swiss vs. French side, and handling administrative tasks (visas, bank accounts, SIM cards, health insurance). 
+Short-term interns and newcomers at CERN face significant challenges when relocating to the Geneva/Pays de Gex area. Beyond finding everyday services (barbers, phone repair, mechanics, etc.) that speak English, they struggle with the complex logistics of moving to a cross-border region. This includes figuring out how to get to Geneva/CERN, navigating the rental housing market on the Swiss vs. French side, and handling administrative tasks (visas, bank accounts, SIM cards, health insurance).
 
 While CERN provides official guides, they are often high-level, lack granular details, and don't address the practical "hacks" or step-by-step guides that newcomers actually need. Current informal knowledge sharing is heavily reliant on ephemeral WhatsApp groups, making critical information hard to find, unsearchable, and easily lost over time.
 
 ## Solution
 
-A centralized, collaborative, lightweight static website (built with Astro) branded as **Enquire** (a reference to Tim Berners-Lee's original 1980 database system built at CERN) that serves as a comprehensive onboarding companion and directory for CERN newcomers. To ensure trademark safety while maintaining search relevance, the site will carry the tagline: *An unofficial relocation guide & directory for CERN newcomers*.
+A centralized, collaborative, lightweight static website (built with Astro) branded as **Enquire** (a reference to Tim Berners-Lee's original 1980 database system built at CERN) that serves as a comprehensive onboarding companion and directory for CERN newcomers. To ensure trademark safety while maintaining search relevance, the site will carry the tagline: _An unofficial relocation guide & directory for CERN newcomers_.
 
 The site will provide two main sections:
+
 1. **Interactive Directory**: Recommended local services structured by categories, with essential metadata (location, languages spoken) and community reviews.
 2. **Practical Step-by-Step Guides**: In-depth, community-curated guides covering arrival logistics (transportation), housing search strategies (Swiss vs. French side), and local admin setup (SIM cards, bank accounts, health insurance).
 
@@ -44,16 +45,18 @@ The website will leverage Markdown for easy content management, Giscus (GitHub D
 To address real-world newcomer pain points, the initial content collections will be seeded with the following directories and guide topics:
 
 ### 1. New Directory Categories & Seed Listings
-- **Barbers**: *Loïc & Lea (Saint-Genis)* - English-speaking and bookable online via Planity.
-- **Bicycle Repair/Shops**: *Bouticycle (Ferney-Voltaire)* (English-speaking, e-bike discounts) and *Culture Velo (Thoiry)*.
-- **Car Repair & Tyres**: *Feu Vert (Thoiry)*, *Autodistribution (Prévessin)*, and info on the *CERN Car Club* (DIY tyre mounting machines).
-- **Electronics & Console Repair**: *GSM Shop (Geneva)* and *iFixit* guides.
-- **Plumbing**: *ABC Plomberie* (French side, basic English spoken).
-- **Leisure & Sports**: *Totem (Bouldering)*, *Grimper.ch (Satigny)*, and *CERN Climbing Club*.
-- **Hiking Routes**: *Salève* (via public transit/cable car), *Crête de la Neige / Reculet* (access via Bus 68 from Sergy/Thoiry), and *Valserhône river routes* (via bus X33 to Bellegarde).
+
+- **Barbers**: _Loïc & Lea (Saint-Genis)_ - English-speaking and bookable online via Planity.
+- **Bicycle Repair/Shops**: _Bouticycle (Ferney-Voltaire)_ (English-speaking, e-bike discounts) and _Culture Velo (Thoiry)_.
+- **Car Repair & Tyres**: _Feu Vert (Thoiry)_, _Autodistribution (Prévessin)_, and info on the _CERN Car Club_ (DIY tyre mounting machines).
+- **Electronics & Console Repair**: _GSM Shop (Geneva)_ and _iFixit_ guides.
+- **Plumbing**: _ABC Plomberie_ (French side, basic English spoken).
+- **Leisure & Sports**: _Totem (Bouldering)_, _Grimper.ch (Satigny)_, and _CERN Climbing Club_.
+- **Hiking Routes**: _Salève_ (via public transit/cable car), _Crête de la Neige / Reculet_ (access via Bus 68 from Sergy/Thoiry), and _Valserhône river routes_ (via bus X33 to Bellegarde).
 
 ### 2. Practical Step-by-Step Guides
-- **Cross-Border Banking & Currency**: 
+
+- **Cross-Border Banking & Currency**:
   - Compare bank accounts suitable for both Swiss and French residents (UBS, Dukascopy, Revolut).
   - Explain how to use **Ibani** (CH IBAN with auto-conversion to EUR) and **Wise** to minimize exchange rate losses.
 - **TIN & AVS Numbers Demystified**:

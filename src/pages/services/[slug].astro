@@ -2,7 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Giscus from "@components/Giscus.astro";
-import { serviceCategories } from "@/categories";
+import { formatCategory, hasEnglishSpoken, formatWebsite } from "@/utils/helpers";
 
 export async function getStaticPaths() {
   const services = await getCollection("services");
@@ -17,24 +17,15 @@ const { title, category, address, languages, tags, phone, website } = entry.data
 
 const { Content } = await render(entry);
 
-const hasEnglish = languages.some(
-  (lang) => lang.toLowerCase() === "english"
-);
+const hasEnglish = hasEnglishSpoken(languages);
 
-const formattedWebsite = website && !/^https?:\/\//i.test(website) 
-  ? `https://${website}` 
-  : website;
-
-function formatCategory(cat: string) {
-  if (serviceCategories[cat]) return serviceCategories[cat];
-  return cat
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
+const formattedWebsite = formatWebsite(website);
 ---
 
-<Layout title={title} description={`Details and newcomer hacks for ${title} (${formatCategory(category)})`}>
+<Layout
+  title={title}
+  description={`Details and newcomer hacks for ${title} (${formatCategory(category)})`}
+>
   <div class="detail-container">
     <!-- Back Link -->
     <a href="/services" class="back-link" id="btn-back-to-directory">
@@ -45,9 +36,7 @@ function formatCategory(cat: string) {
     <div class="detail-header">
       <div class="header-badges">
         <span class="category-badge">{formatCategory(category)}</span>
-        {hasEnglish && (
-          <span class="english-badge">English Spoken</span>
-        )}
+        {hasEnglish && <span class="english-badge">English Spoken</span>}
       </div>
       <h1>{title}</h1>
     </div>
@@ -65,13 +54,13 @@ function formatCategory(cat: string) {
       <!-- Right: Structured Information Card -->
       <aside class="info-card" aria-label="Contact Information">
         <h2 class="card-section-title">Contact & Location</h2>
-        
+
         <div class="info-items">
           <div class="info-item">
             <div class="info-details">
               <span class="info-label">Address</span>
               <p class="info-value">{address}</p>
-              <a 
+              <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -83,56 +72,60 @@ function formatCategory(cat: string) {
             </div>
           </div>
 
-          {phone && (
-            <div class="info-item">
-              <div class="info-details">
-                <span class="info-label">Phone</span>
-                <a href={`tel:${phone}`} class="info-value link-value" id="link-phone">
-                  {phone}
-                </a>
+          {
+            phone && (
+              <div class="info-item">
+                <div class="info-details">
+                  <span class="info-label">Phone</span>
+                  <a href={`tel:${phone}`} class="info-value link-value" id="link-phone">
+                    {phone}
+                  </a>
+                </div>
               </div>
-            </div>
-          )}
+            )
+          }
 
-          {website && (
-            <div class="info-item">
-              <div class="info-details">
-                <span class="info-label">Website</span>
-                <a 
-                  href={formattedWebsite} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="info-value link-value website-link"
-                  id="link-website"
-                >
-                  Visit Website ↗
-                </a>
+          {
+            website && (
+              <div class="info-item">
+                <div class="info-details">
+                  <span class="info-label">Website</span>
+                  <a
+                    href={formattedWebsite}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="info-value link-value website-link"
+                    id="link-website"
+                  >
+                    Visit Website ↗
+                  </a>
+                </div>
               </div>
-            </div>
-          )}
+            )
+          }
 
           <div class="info-item">
             <div class="info-details">
               <span class="info-label">Languages Spoken</span>
               <div class="languages-tags">
-                {languages.map((lang) => (
-                  <span class="lang-tag">{lang}</span>
-                ))}
+                {languages.map((lang) => <span class="lang-tag">{lang}</span>)}
               </div>
             </div>
           </div>
         </div>
 
-        {tags.length > 0 && (
-          <div class="tags-section">
-            <span class="info-label">Attributes</span>
-            <div class="tags-list">
-              {tags.map((tag) => (
-                <span class="tag-badge">#{tag}</span>
-              ))}
+        {
+          tags.length > 0 && (
+            <div class="tags-section">
+              <span class="info-label">Attributes</span>
+              <div class="tags-list">
+                {tags.map((tag) => (
+                  <span class="tag-badge">#{tag}</span>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
       </aside>
     </div>
 
@@ -140,7 +133,8 @@ function formatCategory(cat: string) {
     <div class="comments-section">
       <h2 class="comments-title">Community Reviews & Suggestions</h2>
       <p class="comments-desc">
-        Have you visited this place? Leave a review or add helpful tips/hacks below to help other CERN newcomers!
+        Have you visited this place? Leave a review or add helpful tips/hacks below to help other
+        CERN newcomers!
       </p>
       <Giscus />
     </div>
@@ -436,7 +430,9 @@ function formatCategory(cat: string) {
       font-size: 2.25rem;
     }
 
-    .content-card, .info-card, .comments-section {
+    .content-card,
+    .info-card,
+    .comments-section {
       padding: 1.5rem;
     }
   }

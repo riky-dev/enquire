@@ -13,6 +13,6 @@ export const siteConfig = {
     lang: "en",
     loading: "lazy",
   },
-  suggestionFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe7px5SRq0Yek4hNiq6I7TwF6UlaZcky9ikhl4WaEOls2xITw/viewform?embedded=true",
+  suggestionFormUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSe7px5SRq0Yek4hNiq6I7TwF6UlaZcky9ikhl4WaEOls2xITw/viewform?embedded=true",
 } as const;
-
