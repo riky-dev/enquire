@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import { serviceCategories } from "../../config";
+import Layout from "@layouts/Layout.astro";
+import { serviceCategories } from "@/categories";
 
 const services = await getCollection("services");
 

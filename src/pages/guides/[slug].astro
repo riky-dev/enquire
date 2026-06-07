@@ -1,0 +1,294 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import Giscus from "@components/Giscus.astro";
+import { guideCategoryIcons } from "@/categories";
+
+export async function getStaticPaths() {
+  const guides = await getCollection("guides");
+  return guides.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, category, description, lastUpdated } = entry.data;
+
+const { Content } = await render(entry);
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<Layout
+  title={title}
+  description={description}
+>
+  <div class="detail-container">
+    <!-- Back Link -->
+    <a href="/guides" class="back-link" id="btn-back-to-guides">
+      <span class="arrow">←</span> Back to Guides
+    </a>
+
+    <!-- Detail Header -->
+    <article class="guide-article">
+      <header class="guide-header">
+        <div class="header-badges">
+          <span class="category-badge">
+            <span class="badge-icon">{guideCategoryIcons[category]}</span> {category}
+          </span>
+          <span class="date-badge">Updated: {formatDate(lastUpdated)}</span>
+        </div>
+        <h1>{title}</h1>
+        {description && <p class="lead-description">{description}</p>}
+      </header>
+
+      <!-- Main Markdown Content -->
+      <section class="content-card" aria-label="Guide Content">
+        <div class="markdown-content">
+          <Content />
+        </div>
+      </section>
+    </article>
+
+    <!-- Giscus Comments Section -->
+    <div class="comments-section">
+      <h2 class="comments-title">Community Input & Corrections</h2>
+      <p class="comments-desc">
+        Did something change or is there a schedule update? Let the community know in the comments below!
+      </p>
+      <Giscus />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .detail-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+  }
+
+  .back-link:hover {
+    color: var(--text-primary);
+  }
+
+  .back-link .arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .back-link:hover .arrow {
+    transform: translateX(-3px);
+  }
+
+  /* Header Styling */
+  .guide-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .header-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .category-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .date-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .lead-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Content Card */
+  .content-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .markdown-content {
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .markdown-content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .markdown-content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .markdown-content :global(h2) {
+    font-size: 1.6rem;
+    font-weight: 750;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .markdown-content :global(h3) {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .markdown-content :global(ul), .markdown-content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .markdown-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .markdown-content :global(a) {
+    color: var(--accent-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .markdown-content :global(a:hover) {
+    color: #22d3ee;
+    text-decoration: underline;
+  }
+
+  .markdown-content :global(strong) {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .markdown-content :global(blockquote) {
+    border-left: 4px solid var(--accent-primary);
+    background: rgba(139, 92, 246, 0.05);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    color: var(--text-secondary);
+  }
+
+  .markdown-content :global(code) {
+    font-family: monospace;
+    background-color: rgba(255, 255, 255, 0.06);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #f472b6;
+  }
+
+  .markdown-content :global(pre) {
+    background-color: rgba(10, 12, 16, 0.8);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .markdown-content :global(pre code) {
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: 0.9em;
+  }
+
+  /* Comments Styling */
+  .comments-section {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .comments-title {
+    font-size: 1.4rem;
+    font-weight: 750;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .comments-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+
+    .content-card, .comments-section {
+      padding: 1.5rem;
+    }
+  }
+</style>
