@@ -16,13 +16,3 @@ export const siteConfig = {
   suggestionFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSe7px5SRq0Yek4hNiq6I7TwF6UlaZcky9ikhl4WaEOls2xITw/viewform?embedded=true",
 } as const;
 
-export const serviceCategories: Record<string, string> = {
-  barbers: "Barbers",
-  "bicycle-repair": "Bicycle Repair",
-  "car-repair": "Car Repair & Tyres",
-  "electronics-repair": "Electronics Repair",
-  plumbing: "Plumbing",
-  "leisure-sports": "Leisure & Sports",
-  hiking: "Hiking",
-};
-
