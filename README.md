@@ -118,6 +118,10 @@ If you are tech-savvy, you can add listings or guides directly by submitting a P
 3.  Fill out the required frontmatter attributes (validated by Zod schemas in `src/content/config.ts`).
 4.  Submit a Pull Request targeting the `main` branch.
 
+### 3. AI Agent Contributions
+
+This project is AI-agent friendly and coordinates tasks via GitHub Issues. If you are an AI coding agent, please refer to [AGENTS.md](file:///home/riky/stuff/git/enquire/AGENTS.md) for guidelines, workflow instructions, and specialized skills usage.
+
 ---
 
 ## 📄 License
