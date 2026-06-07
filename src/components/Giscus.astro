@@ -1,0 +1,70 @@
+---
+import { siteConfig } from "../config";
+
+interface Props {
+  repo?: string;
+  repoId?: string;
+  category?: string;
+  categoryId?: string;
+  mapping?: 'pathname' | 'url' | 'title' | 'og:title' | 'specific';
+  term?: string;
+  strict?: '0' | '1';
+  reactionsEnabled?: '0' | '1';
+  emitMetadata?: '0' | '1';
+  inputPosition?: 'top' | 'bottom';
+  theme?: string;
+  lang?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const {
+  repo = siteConfig.giscus.repo,
+  repoId = siteConfig.giscus.repoId,
+  category = siteConfig.giscus.category,
+  categoryId = siteConfig.giscus.categoryId,
+  mapping = siteConfig.giscus.mapping,
+  term,
+  strict = siteConfig.giscus.strict,
+  reactionsEnabled = siteConfig.giscus.reactionsEnabled,
+  emitMetadata = siteConfig.giscus.emitMetadata,
+  inputPosition = siteConfig.giscus.inputPosition,
+  theme = siteConfig.giscus.theme,
+  lang = siteConfig.giscus.lang,
+  loading = siteConfig.giscus.loading,
+} = Astro.props;
+---
+
+<div class="giscus-wrapper">
+  <div class="giscus"></div>
+</div>
+
+<script
+  src="https://giscus.app/client.js"
+  data-repo={repo}
+  data-repo-id={repoId}
+  data-category={category}
+  data-category-id={categoryId}
+  data-mapping={mapping}
+  data-term={term}
+  data-strict={strict}
+  data-reactions-enabled={reactionsEnabled}
+  data-emit-metadata={emitMetadata}
+  data-input-position={inputPosition}
+  data-theme={theme}
+  data-lang={lang}
+  data-loading={loading}
+  crossorigin="anonymous"
+  async
+></script>
+
+<style>
+  .giscus-wrapper {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
