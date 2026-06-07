@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title: string;
@@ -24,6 +25,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <Analytics />
     <title>{title} | Enquire</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl || Astro.url.href} />
@@ -61,7 +63,11 @@ const {
 
     <footer class="main-footer">
       <p class="footer-text">
-        An unofficial community relocation guide for CERN newcomers.<br />Made by <a href="https://riky.dev" target="_blank" rel="noopener noreferrer">riky.dev</a> and the community.
+        An unofficial community relocation guide for CERN newcomers.<br />Made by <a
+          href="https://riky.dev"
+          target="_blank"
+          rel="noopener noreferrer">riky.dev</a
+        > and the community.
       </p>
     </footer>
   </body>
