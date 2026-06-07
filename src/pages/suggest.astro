@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FormEmbed from "../components/FormEmbed.astro";
+import { siteConfig } from "../config";
+---
+
+<Layout 
+  title="Suggest a Place" 
+  description="Suggest a local service provider or relocate guide to help other CERN newcomers."
+>
+  <div class="suggest-container">
+    <div class="suggest-header">
+      <h1>Suggest a Place</h1>
+      <p class="subtitle">
+        Know a great English-speaking barber, mechanic, or bike shop? Or have a relocation tip to share? Fill out the form below to add it to the directory.
+      </p>
+    </div>
+
+    <div class="form-wrapper">
+      <FormEmbed 
+        src={siteConfig.suggestionFormUrl} 
+        title="Enquire Suggestion Form"
+        height="800px"
+      />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .suggest-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .suggest-header {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .form-wrapper {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+    .form-wrapper {
+      padding: 1.5rem 1rem;
+    }
+  }
+</style>
