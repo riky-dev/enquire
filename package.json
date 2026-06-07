@@ -16,13 +16,15 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit && astro check",
     "test": "npm run lint && npm run format:check && npm run typecheck && vitest run",
-    "test:links": "linkinator ./dist --recurse --skip \"^https?://(?!localhost|127\\.0\\.0\\.1)\""
+    "test:links": "linkinator ./dist --recurse --skip \"^https?://(?!localhost|127\\.0\\.0\\.1)\"",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "astro": "^6.4.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.2",
     "@typescript-eslint/eslint-plugin": "^8.60.1",
     "@typescript-eslint/parser": "^8.60.1",
