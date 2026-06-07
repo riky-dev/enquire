@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+import FormEmbed from "../components/FormEmbed.astro";
+import Giscus from "../components/Giscus.astro";
+import { siteConfig } from "../config";
 ---
 
 <!doctype html>
@@ -11,17 +14,68 @@ import "../styles/global.css";
     <title>Enquire | Unofficial CERN Relocation Guide & Directory</title>
     <meta
       name="description"
-      content="An unofficial relocation guide & directory for CERN newcomers."
+      content="An unofficial relocation guide & directory for CERN newcomers, interns, and students navigating the Swiss-French border."
     />
   </head>
   <body>
-    <div class="container">
+    <div class="page-wrapper">
       <h1>Enquire</h1>
-      <p>
+      <p class="description">
         An unofficial relocation guide & directory for CERN newcomers, interns, and students
         navigating the Swiss-French border.
       </p>
-      <span class="tag">Coming Soon</span>
+      
+      <FormEmbed 
+        src={siteConfig.suggestionFormUrl} 
+        title="Enquire Suggestion Form"
+        height="750px"
+      />
+
+      <Giscus />
     </div>
   </body>
 </html>
+
+<style>
+  body {
+    display: block;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+  }
+
+  .page-wrapper {
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    body {
+      padding: 2rem 1rem;
+    }
+    .page-wrapper {
+      padding: 2rem 1rem;
+    }
+  }
+</style>
