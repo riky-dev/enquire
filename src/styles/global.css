@@ -81,3 +81,13 @@ p {
   border-radius: 6px;
   font-weight: 600;
 }
+
+/* Keyboard Navigation Focus Rings */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-secondary);
+  outline-offset: 4px;
+}
