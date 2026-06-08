@@ -101,11 +101,9 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
   h1 {
     font-size: 3rem;
     font-weight: 800;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-primary);
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 
   .subtitle {
@@ -150,14 +148,14 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
     background-color: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--border-color);
     padding: 0.2rem 0.6rem;
-    border-radius: 20px;
+    border-radius: 6px;
     color: var(--text-secondary);
     margin-left: 0.5rem;
   }
 
   .guides-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
     gap: 1.5rem;
     width: 100%;
   }
@@ -165,32 +163,26 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
   .guide-card {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
-    padding: 2rem;
+    border-radius: 8px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background-image: radial-gradient(
-      circle at top right,
-      rgba(139, 92, 246, 0.02) 0%,
-      transparent 50%
-    );
+    box-shadow: none;
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
     text-decoration: none;
     cursor: pointer;
   }
 
   .guide-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.12);
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-strong);
   }
 
   .guide-card:hover .card-title {
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--accent-primary);
   }
 
   .guide-card:hover .read-link {
@@ -205,12 +197,14 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     font-size: 0.75rem;
     font-weight: 600;
   }
 
   .category-tag {
-    color: var(--accent-secondary);
+    color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -259,7 +253,7 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
     padding: 4rem 2rem;
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: 20px;
+    border-radius: 8px;
   }
 
   .empty-state p {
@@ -270,17 +264,17 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
 
   .suggest-btn {
     display: inline-block;
-    background: var(--accent-gradient);
-    color: white;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
     text-decoration: none;
     padding: 0.75rem 2rem;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 700;
-    transition: transform 0.2s ease;
+    transition: background-color 0.2s ease;
   }
 
   .suggest-btn:hover {
-    transform: scale(1.02);
+    background: var(--accent-hover);
   }
 
   @media (max-width: 640px) {
