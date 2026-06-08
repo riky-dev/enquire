@@ -146,6 +146,14 @@ const jsonLd = {
             </div>
           )
         }
+
+        <div class="suggest-section">
+          <span class="info-label">Contribute</span>
+          <p class="suggest-text">Know another great local place?</p>
+          <a href="/suggest" class="suggest-link-btn" id="btn-suggest-from-detail">
+            Suggest a Place
+          </a>
+        </div>
       </aside>
     </div>
 
@@ -390,6 +398,38 @@ const jsonLd = {
     color: var(--accent-secondary);
     font-size: 0.85rem;
     font-weight: 600;
+  }
+
+  .suggest-section {
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .suggest-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .suggest-link-btn {
+    display: inline-block;
+    text-align: center;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    margin-top: 0.25rem;
+  }
+
+  .suggest-link-btn:hover {
+    background: var(--accent-hover);
   }
 
   /* Comments Styling */

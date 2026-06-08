@@ -20,24 +20,6 @@ import Layout from "@layouts/Layout.astro";
         <a href="/guides" class="cta-button secondary-cta" id="cta-view-guides"> Read Guides </a>
       </div>
     </div>
-
-    <section class="entry-section" aria-label="Browse Enquire">
-      <a href="/services" class="entry-link">
-        <span class="entry-label">Services</span>
-        <p>
-          English-friendly local providers, addresses, languages, and newcomer notes for the Geneva
-          and Pays de Gex area.
-        </p>
-      </a>
-
-      <a href="/guides" class="entry-link">
-        <span class="entry-label">Guides</span>
-        <p>
-          Practical steps for housing, banking, health insurance, transport, paperwork, and campus
-          life.
-        </p>
-      </a>
-    </section>
   </div>
 </Layout>
 
@@ -115,43 +97,6 @@ import Layout from "@layouts/Layout.astro";
     border-color: var(--border-strong);
   }
 
-  .entry-section {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .entry-link {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    box-shadow: none;
-    text-decoration: none;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease;
-  }
-
-  .entry-link:hover {
-    background-color: var(--bg-tertiary);
-    border-color: var(--border-strong);
-  }
-
-  .entry-label {
-    display: block;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--text-primary);
-  }
-
-  .entry-link p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.5;
-  }
 
   @media (max-width: 640px) {
     h1 {

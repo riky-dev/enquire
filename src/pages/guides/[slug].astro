@@ -72,6 +72,14 @@ const jsonLd = {
       </section>
     </article>
 
+    <!-- Suggest a Guide Box -->
+    <div class="suggest-guide-box">
+      <p class="suggest-guide-text">Have a relocation tip or another guide suggestion?</p>
+      <a href="/suggest" class="suggest-guide-btn" id="btn-suggest-guide-detail">
+        Suggest a Guide
+      </a>
+    </div>
+
     <!-- Giscus Comments Section -->
     <div class="comments-section">
       <h2 class="comments-title">Community Input & Corrections</h2>
@@ -181,6 +189,43 @@ const jsonLd = {
     border-radius: 8px;
     padding: 2rem;
     box-shadow: none;
+  }
+
+  /* Suggest Guide Box Styling */
+  .suggest-guide-box {
+    background-color: var(--bg-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .suggest-guide-text {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .suggest-guide-btn {
+    display: inline-block;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    text-decoration: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    text-align: center;
+  }
+
+  .suggest-guide-btn:hover {
+    background: var(--accent-hover);
   }
 
   /* Comments Styling */

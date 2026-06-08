@@ -21,6 +21,9 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
         Step-by-step instructions, cross-border logistics, and practical CERN hacks curated by the
         community.
       </p>
+      <div class="header-actions">
+        <a href="/suggest" class="suggest-btn" id="btn-suggest-guide-header"> Suggest a Guide </a>
+      </div>
     </div>
 
     {
@@ -96,6 +99,13 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
+  }
+
+  .header-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
 
   h1 {

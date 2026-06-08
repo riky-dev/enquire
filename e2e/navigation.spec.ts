@@ -11,9 +11,10 @@ test.describe("Navigation Flow", () => {
     await page.locator("#cta-view-directory").click();
     await expect(page).toHaveURL("/services");
     await expect(page.locator(".directory-header h1")).toContainText("Services Directory");
+    await expect(page.locator("#btn-suggest-service-header")).toBeVisible();
 
-    // 3. Navigate to Suggest a Place
-    await page.goto("/suggest");
+    // 3. Navigate to Suggest a Place via the services page header button
+    await page.locator("#btn-suggest-service-header").click();
     await expect(page).toHaveURL("/suggest");
     await expect(page.locator(".suggest-header h1")).toContainText("Suggest a Place");
 
@@ -25,6 +26,7 @@ test.describe("Navigation Flow", () => {
     await page.goto("/guides");
     await expect(page).toHaveURL("/guides");
     await expect(page.locator(".guides-header h1")).toContainText("Guides");
+    await expect(page.locator("#btn-suggest-guide-header")).toBeVisible();
 
     // Verify guides categories are listed
     await expect(page.locator("#cat-getting-here")).toContainText("Getting Here");
@@ -36,5 +38,6 @@ test.describe("Navigation Flow", () => {
     await expect(page.locator(".guide-header h1")).toContainText(
       "CERN Campus Amenities and Life Hacks",
     );
+    await expect(page.locator("#btn-suggest-guide-detail")).toBeVisible();
   });
 });

@@ -20,6 +20,9 @@ const categories = [...new Set(services.map((service) => service.data.category))
         Find community-curated, English-friendly local services and practical tips for the Pays de
         Gex and Geneva area.
       </p>
+      <div class="header-actions">
+        <a href="/suggest" class="suggest-btn" id="btn-suggest-service-header"> Suggest a Place </a>
+      </div>
     </div>
 
     <!-- Category Filter Controls -->
@@ -175,6 +178,13 @@ const categories = [...new Set(services.map((service) => service.data.category))
     font-size: 1.15rem;
     color: var(--text-secondary);
     line-height: 1.6;
+  }
+
+  .header-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
 
   /* Filter Styling */
