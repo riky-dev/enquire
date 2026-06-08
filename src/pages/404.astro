@@ -1,0 +1,145 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout
+  title="Page Not Found"
+  description="Route lost in the Jura Mountains. The page you are looking for does not exist."
+>
+  <div class="error-container">
+    <div class="error-visual">
+      <span class="emoji">🏔️</span>
+      <h1 class="error-code">404</h1>
+    </div>
+
+    <div class="error-text">
+      <h2>Route lost in the Jura Mountains</h2>
+      <p>
+        It seems the coordinates you requested led into the wilderness. Let's get you back to the
+        collider.
+      </p>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="/" class="cta-button primary-cta" id="cta-404-home"> Go to Home </a>
+      <a href="/guides" class="cta-button secondary-cta" id="cta-404-guides"> Explore Guides </a>
+      <a href="/services" class="cta-button secondary-cta" id="cta-404-services">
+        Services Directory
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 3rem 2rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .error-visual {
+    margin-bottom: 1.5rem;
+  }
+
+  .emoji {
+    font-size: 3.5rem;
+    display: inline-block;
+  }
+
+  .error-code {
+    font-size: 5rem;
+    font-weight: 800;
+    margin: 0.5rem 0 0 0;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.05em;
+  }
+
+  .error-text {
+    margin-bottom: 2.5rem;
+  }
+
+  .error-text h2 {
+    font-size: 1.75rem;
+    font-weight: 750;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .error-text p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .cta-button {
+    padding: 0.8rem 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .primary-cta {
+    background: var(--accent-gradient);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+  }
+
+  .primary-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.35);
+  }
+
+  .secondary-cta {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+  }
+
+  .secondary-cta:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .error-container {
+      margin: 2rem 1rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .error-code {
+      font-size: 4rem;
+    }
+    .error-text h2 {
+      font-size: 1.5rem;
+    }
+    .cta-buttons {
+      flex-direction: column;
+    }
+    .cta-button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

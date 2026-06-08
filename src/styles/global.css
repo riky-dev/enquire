@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
-
 :root {
   --bg-primary: #0a0c10;
   --bg-secondary: #121620;
@@ -90,4 +88,177 @@ textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid var(--accent-secondary);
   outline-offset: 4px;
+}
+
+/* Custom Webkit Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(139, 92, 246, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(139, 92, 246, 0.5);
+}
+
+/* Micro-transitions & Hover effects */
+a,
+button,
+.guide-card,
+.service-card,
+.feature-card {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.guide-card:hover,
+.service-card:hover,
+.feature-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.1);
+}
+
+/* Markdown Typography (.prose) */
+.prose {
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 750;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose li + li {
+  margin-top: 0.25rem;
+}
+
+.prose ul li::marker {
+  color: var(--accent-primary);
+}
+
+.prose ol li::marker {
+  color: var(--accent-secondary);
+  font-weight: 700;
+}
+
+.prose a {
+  color: var(--accent-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.prose a:hover {
+  color: #22d3ee;
+  text-decoration: underline;
+}
+
+.prose strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.prose blockquote {
+  font-style: italic;
+  border-left: 4px solid var(--accent-primary);
+  background: rgba(139, 92, 246, 0.04);
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+  color: var(--text-secondary);
+}
+
+.prose code {
+  font-family: monospace;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #f472b6;
+  border: 1px solid var(--border-color);
+}
+
+.prose pre {
+  background-color: rgba(10, 12, 16, 0.8);
+  border: 1px solid var(--border-color);
+  padding: 1.25rem;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: 0.9em;
+  border: none;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose th,
+.prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.prose th {
+  background-color: rgba(255, 255, 255, 0.04);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.prose tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+.prose tr:hover {
+  background-color: rgba(255, 255, 255, 0.03);
 }
