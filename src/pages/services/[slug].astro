@@ -66,7 +66,7 @@ const jsonLd = {
       <!-- Left: Markdown Content / Description -->
       <section class="content-card" aria-label="Service Details">
         <h2 class="section-title">Newcomer Review & Hacks</h2>
-        <div class="markdown-content">
+        <div class="markdown-content prose">
           <Content />
         </div>
       </section>
@@ -266,28 +266,6 @@ const jsonLd = {
     color: var(--text-primary);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.75rem;
-  }
-
-  .markdown-content {
-    color: var(--text-primary);
-    line-height: 1.7;
-    font-size: 1.05rem;
-  }
-
-  .markdown-content :global(p) {
-    margin-bottom: 1.25rem;
-  }
-
-  .markdown-content :global(p:last-child) {
-    margin-bottom: 0;
-  }
-
-  .markdown-content :global(h3) {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: var(--text-primary);
   }
 
   /* Right Column (Info Card) */
