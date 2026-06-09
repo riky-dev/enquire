@@ -2,7 +2,6 @@
 import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Giscus from "@components/Giscus.astro";
-import { guideCategoryIcons } from "@/categories";
 import { formatDate } from "@/utils/helpers";
 
 export async function getStaticPaths() {
@@ -55,7 +54,6 @@ const jsonLd = {
       <header class="guide-header">
         <div class="header-badges">
           <span class="category-badge">
-            <span class="badge-icon">{guideCategoryIcons[category]}</span>
             {category}
           </span>
           <span class="date-badge">Updated: {formatDate(lastUpdated)}</span>

@@ -2,13 +2,6 @@ export const guideCategories = ["Getting Here", "Housing", "Settling In", "Admin
 
 export type GuideCategory = (typeof guideCategories)[number];
 
-export const guideCategoryIcons: Record<GuideCategory, string> = {
-  "Getting Here": "✈️",
-  Housing: "🏠",
-  "Settling In": "🤝",
-  Admin: "📝",
-};
-
 export const serviceCategories: Record<string, string> = {
   barbers: "Barbers",
   "bicycle-repair": "Bicycle Repair",

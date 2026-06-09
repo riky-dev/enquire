@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import { guideCategories, guideCategoryIcons } from "@/categories";
+import { guideCategories } from "@/categories";
 import { formatDate, groupGuidesByCategory } from "@/utils/helpers";
 
 const guides = await getCollection("guides");
@@ -46,7 +46,6 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
                 aria-labelledby={`cat-${cat.replace(/\s+/g, "-").toLowerCase()}`}
               >
                 <div class="category-title-wrapper">
-                  <span class="category-icon">{guideCategoryIcons[cat]}</span>
                   <h2 class="category-title" id={`cat-${cat.replace(/\s+/g, "-").toLowerCase()}`}>
                     {cat}
                   </h2>
@@ -140,10 +139,6 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
     gap: 0.75rem;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 0.75rem;
-  }
-
-  .category-icon {
-    font-size: 1.5rem;
   }
 
   .category-title {
