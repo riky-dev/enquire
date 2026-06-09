@@ -10,7 +10,7 @@ vi.mock("astro/loaders", () => ({
   glob: vi.fn(() => ({})),
 }));
 
-import { collections } from "../content.config";
+import { collections } from "./content.config";
 
 describe("Content Schemas", () => {
   describe("Services Schema", () => {

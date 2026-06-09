@@ -1,4 +1,4 @@
-# Enquire 🚀
+# Enquire
 
 > **An unofficial relocation guide & directory for CERN newcomers.**
 
@@ -50,7 +50,7 @@ A simple suggestion form allows any newcomer or alumnus to propose a new listing
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework:** [Astro](https://astro.build/) (v6) - Fast, lightweight, static site generator.
 - **Content Management:** Astro Content Collections with [Zod](https://zod.dev/) schemas to ensure strict validation of frontmatter.
@@ -58,7 +58,7 @@ A simple suggestion form allows any newcomer or alumnus to propose a new listing
 - **Comments:** [Giscus](https://giscus.app/) (GitHub Discussions API).
 - **Deployment:** GitHub Pages / Vercel / Netlify.
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -99,7 +99,7 @@ npm run preview
 
 ---
 
-## 🤝 How to Contribute
+## How to Contribute
 
 Contributions are what make the CERN newcomer community thrive! Here is how you can help:
 
@@ -124,6 +124,6 @@ This project is AI-agent friendly and coordinates tasks via GitHub Issues. If yo
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.

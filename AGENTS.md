@@ -2,7 +2,7 @@
 
 This project is built to be AI-agent friendly. We coordinate tasks, features, and bug fixes using **GitHub Issues** to allow both human contributors and AI agents to work asynchronously and collaboratively on the codebase.
 
-## 🛠️ Task Coordination via GitHub Issues
+## Task Coordination via GitHub Issues
 
 - **GitHub Issues as Single Source of Truth**: Every task, feature, or bug fix should have a corresponding GitHub Issue.
 - **Triage Labels for Agents**:
@@ -12,7 +12,7 @@ This project is built to be AI-agent friendly. We coordinate tasks, features, an
   - When drafting a new feature, agents use the `to-prd` skill to turn the conversation context into a Product Requirements Document (PRD).
   - This PRD is published directly to the project's GitHub Issue tracker with the `ready-for-agent` label.
 
-## 🚀 Guidelines for AI Agents Working on the Repository
+## Guidelines for AI Agents Working on the Repository
 
 If you are an AI agent assigned to a task, please follow these guidelines:
 

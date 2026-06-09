@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://riky-dev.github.io/enquire",
+  site: "https://enquire-guide.vercel.app/",
   build: {
     inlineStylesheets: "always",
   },
