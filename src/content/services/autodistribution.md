@@ -1,7 +1,7 @@
 ---
 title: "Autodistribution"
 category: "car-repair"
-address: "Route de Meyrin, 01280 Prévessin-Moëns, France"
+address: "156 Rte du Nant, 01280 Prévessin-Moëns, France"
 languages: ["French"]
 tags: ["car-parts"]
 phone: "+33 4 50 40 80 80"

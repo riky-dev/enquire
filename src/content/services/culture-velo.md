@@ -1,7 +1,7 @@
 ---
 title: "Culture Vélo"
 category: "bicycle-repair"
-address: "Centre Commercial Val Thoiry, 01710 Thoiry, France"
+address: "Pré de Fontaine, 01710 Thoiry, France"
 languages: ["French"]
 tags: []
 phone: "+33 4 50 41 23 45"

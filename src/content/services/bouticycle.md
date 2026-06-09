@@ -1,7 +1,7 @@
 ---
 title: "Bouticycle"
 category: "bicycle-repair"
-address: "Chemin de la Poterie, 01210 Ferney-Voltaire, France"
+address: "C28 Av. Voltaire, 01210 Ferney-Voltaire, France"
 languages: ["English"]
 tags: ["e-bike-discounts"]
 phone: "+33 4 50 40 40 40"

@@ -1,11 +1,11 @@
 ---
 title: "CERN Car Club"
 category: "car-repair"
-address: "CERN Meyrin Campus, Building 507, 1211 Geneva, Switzerland"
+address: "CERN Building 6676"
 languages: ["English", "French"]
 tags: ["cern-club", "diy"]
 phone: "+41 22 767 11 11"
-website: "https://club-car.web.cern.ch"
+website: "https://club-automobile.web.cern.ch/en"
 ---
 
 The CERN Car Club is a self-service workshop club located directly on the CERN Meyrin campus.

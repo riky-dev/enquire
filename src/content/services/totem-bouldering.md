@@ -1,7 +1,7 @@
 ---
 title: "Totem Escalade"
 category: "leisure-sports"
-address: "Chemin de l'Epinglier 4, 1217 Meyrin, Switzerland"
+address: "Rue Emma-Kammacher 5B, 1217 Meyrin, Switzerland"
 languages: ["English", "French"]
 tags: ["bouldering", "climbing"]
 phone: "+41 22 980 99 00"
