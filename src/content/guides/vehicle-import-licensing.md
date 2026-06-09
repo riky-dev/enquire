@@ -11,7 +11,7 @@ Bringing a vehicle to the CERN area involves navigating customs, registration pl
 
 Registering a car on custom green plates (VAT/customs duty exempt) is highly bureaucratic.
 
-- **Exporting from Switzerland to France**: Buying a used car in Switzerland and exporting it to France on green plates takes **2 to 3 months** via the CERN Mobility Center.
+- **Exporting from Switzerland to France**: Buying a used car in Switzerland and exporting it to France on green plates takes **2 to 3 months** via the CERN Car Plates Services.
 - **Warning**: During this transition, Swiss export plates might expire. You will be unable to drive unless French temporary CPI (WW/Pink) plates arrive.
 - **Insurers**: Major insurers like _AXA_ and _Allianz_ accept green plates.
 

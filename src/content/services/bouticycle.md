@@ -1,10 +1,10 @@
 ---
 title: "Bouticycle"
 category: "bicycle-repair"
-address: "C28 Av. Voltaire, 01210 Ferney-Voltaire, France"
+address: "28 Avenue Voltaire, 01210 Ferney-Voltaire, France"
 languages: ["English"]
 tags: ["e-bike-discounts"]
-phone: "+33 4 50 40 40 40"
+phone: "+33 4 85 29 00 45"
 website: "https://bouticycle.com/Ferney-Voltaire"
 ---
 

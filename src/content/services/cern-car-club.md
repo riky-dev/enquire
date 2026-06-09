@@ -4,7 +4,7 @@ category: "car-repair"
 address: "CERN Building 6676"
 languages: ["English", "French"]
 tags: ["cern-club", "diy"]
-phone: "+41 22 767 11 11"
+phone: "+41 22 76 74007"
 website: "https://club-automobile.web.cern.ch/en"
 ---
 

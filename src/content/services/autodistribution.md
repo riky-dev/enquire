@@ -4,7 +4,7 @@ category: "car-repair"
 address: "156 Rte du Nant, 01280 Prévessin-Moëns, France"
 languages: ["French"]
 tags: ["car-parts"]
-phone: "+33 4 50 40 80 80"
+phone: "+33 4 50 28 41 80"
 website: "https://www.autodistribution.fr"
 ---
 

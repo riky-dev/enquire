@@ -27,4 +27,4 @@ Uniqa covers medical expenses from accidents, but **does not cover search & resc
 
 ## Swiss Insurance Cancellation
 
-Once your Uniqa coverage starts, you can cancel your Swiss health insurance. Uniqa will backwards-cancel and refund if the certificate is delayed.
+Once your Uniqa coverage starts, you can cancel your Swiss health insurance (LAMal). Your Swiss insurer (not Uniqa) will retroactively cancel your policy and refund any overlapping premiums once they receive the official exemption certificate.

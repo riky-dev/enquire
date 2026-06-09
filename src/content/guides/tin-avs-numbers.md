@@ -9,9 +9,12 @@ Shortly after opening a Swiss bank account (such as with UBS or Yuh), you will l
 
 ## For Swiss Residents
 
-If you reside in Switzerland, your TIN is your Swiss social security (**AVS**) number.
+If you reside in Switzerland, your TIN is your Swiss social security (**AVS**) number (a 13-digit number starting with 756).
 
-- You can obtain this number by contacting the **Cards Service** at CERN.
+- **How to obtain it**:
+  - Staff, Fellows, Graduates, and Students (Technical/Doctoral/Admin): Contact the **Cards Service** via `HR-cards.support@cern.ch`.
+  - Users, Cooperation Associates, and Visiting Scientists: Contact the **Users Office** via `users.office@cern.ch`.
+  - If you already have Swiss health insurance, this number is typically printed on your health insurance card.
 
 ## For French Residents (Expats)
 

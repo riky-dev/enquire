@@ -4,8 +4,8 @@ category: "car-repair"
 address: "1 Chem. de Pré Jacquet, 01710 Thoiry, France"
 languages: ["French"]
 tags: ["tyre-swap", "car-parts"]
-phone: "+33 4 50 41 22 22"
-website: "https://www.feuvert.fr/centres-auto/thoiry/feu-vert-thoiry/414.html"
+phone: "+33 4 50 99 11 22"
+website: "https://www.feuvert.fr/centres-auto/thoiry/feu-vert-thoiry/379.html"
 ---
 
 Feu Vert is a convenient auto center located in the Val Thoiry Commercial Centre, ideal for quick, basic car parts and services.

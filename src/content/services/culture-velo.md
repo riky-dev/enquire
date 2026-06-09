@@ -1,11 +1,11 @@
 ---
 title: "Culture Vélo"
 category: "bicycle-repair"
-address: "Pré de Fontaine, 01710 Thoiry, France"
+address: "Rue Pré de Fontaine, 01710 Thoiry, France"
 languages: ["French"]
 tags: []
-phone: "+33 4 50 41 23 45"
-website: "https://www.culturevelo.com/-Thoiry-"
+phone: "+33 4 50 41 05 97"
+website: "https://www.culturevelo.com"
 ---
 
 Culture Vélo is a specialized bike shop located in the Val Thoiry commercial area.
