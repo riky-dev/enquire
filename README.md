@@ -2,8 +2,6 @@
 
 > **An unofficial relocation guide & directory for CERN newcomers.**
 
-**Enquire** is a collaborative and lightweight static website built with [Astro](https://astro.build/) that serves as a comprehensive onboarding companion and local directory for short-term interns, students, and employees relocating to the Geneva/Pays de Gex cross-border region.
-
 The project is named in homage to _ENQUIRE_, the system developed by Sir Tim Berners-Lee at CERN in 1980, which laid the conceptual foundation for the World Wide Web.
 
 ## Problem Statement
@@ -16,29 +14,15 @@ Relocating to CERN presents unique challenges:
 
 Official guides exist but are often high-level and lack the granular, step-by-step hacks and reviews that newcomers actually need. **Enquire** bridges this gap by centralizing community-curated, searchable, and open-source knowledge.
 
----
-
 ## Key Features
 
 ### 1. Interactive Directory
 
-A catalog of recommended local service providers structured by categories with essential metadata:
-
-- **Categories:** Barbers, Bicycle Repair, Car Repair/Tyres, Electronics Repair, Plumbing, Leisure & Sports, Hiking, and more.
-- **Details:** Address, languages spoken (with English indicators), and tags (e.g., e-bike discounts, bookable online).
-- **CERN Hacks:** Mentions of CERN-specific resources (e.g., the CERN Car Club DIY tyre mounting machines).
+A catalog of recommended local service providers structured by categories with essential metadata
 
 ### 2. Practical Step-by-Step Guides
 
-In-depth articles covering the logistics of cross-border living:
-
-- **Arrival & Transport:** Getting to CERN from Geneva Airport, ticketing, and bus/tram routes.
-- **Housing & Dossiers:** Avoiding rental deposit scams, preparing your dossier, and obtaining Swiss non-pursuit extracts.
-- **Finance & Banking:** Navigating cross-border banking (comparing UBS, Dukascopy, Revolut) and using currency converters (Wise, Ibani) to avoid exchange fee losses.
-- **Legitimation Card Survival:** What to do when your Swiss legitimation card is lost/stolen abroad, and how to handle border/airline checks.
-- **AVS/TIN Numbers:** Locating Swiss TINs and dealing with foreign taxpayer requests.
-- **Uniqa Health Insurance:** What is covered, getting optical/dermatological prescriptions reimbursed, and rescue insurance recommendations.
-- **CERN Campus Hacks:** Locating quiet phone booths, showers, and borrowing free safety gear.
+In-depth articles covering the logistics of cross-border living
 
 ### 3. Community Comments (via Giscus)
 
@@ -46,17 +30,11 @@ Every directory page and guide integrates **Giscus**, allowing users to comment,
 
 ### 4. Direct Submissions
 
-A simple suggestion form allows any newcomer or alumnus to propose a new listing or guide without needing coding knowledge.
-
----
+A simple suggestion form allows any newcomer or alumnis to propose a new listing or guide without needing coding knowledge.
 
 ## Tech Stack
 
-- **Framework:** [Astro](https://astro.build/) (v6) - Fast, lightweight, static site generator.
-- **Content Management:** Astro Content Collections with [Zod](https://zod.dev/) schemas to ensure strict validation of frontmatter.
-- **Styling:** Vanilla CSS (Custom design system in [src/styles/global.css](file:///home/riky/stuff/git/newcomers-guide/src/styles/global.css)).
-- **Comments:** [Giscus](https://giscus.app/) (GitHub Discussions API).
-- **Deployment:** GitHub Pages / Vercel / Netlify.
+Astro v6, Zod, CSS, Giscus
 
 ## Getting Started
 
