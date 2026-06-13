@@ -39,5 +39,11 @@ test.describe("Navigation Flow", () => {
       "CERN Campus Amenities and Life Hacks",
     );
     await expect(page.locator("#btn-suggest-guide-detail")).toBeVisible();
+
+    // 6. Verify GitHub Button
+    const githubLink = page.locator("#nav-link-github");
+    await expect(githubLink).toBeVisible();
+    await expect(githubLink).toHaveAttribute("href", "https://github.com/riky-dev/enquire");
+    await expect(githubLink).toHaveAttribute("target", "_blank");
   });
 });
