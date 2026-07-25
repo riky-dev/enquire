@@ -23,3 +23,6 @@ pnpm-debug.log*
 # testing artifacts
 test-results/
 playwright-report/
+
+# WhatsApp export dumps (local only)
+scripts/*.txt

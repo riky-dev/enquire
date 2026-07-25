@@ -21,8 +21,9 @@ If you are an AI agent assigned to a task, please follow these guidelines:
    - Read the issue description and any linked PRD or architectural decision records (ADRs).
 
 2. **Use Specialized Skills**:
-   - **`requirement-updater`** (located at [.agents/skills/requirement-updater](SKILL.md)): Use this when updating existing requirements or features.
+   - **`requirement-updater`** (located at [.agents/skills/requirement-updater](.agents/skills/requirement-updater/SKILL.md)): Use this when updating existing requirements or features.
    - **`to-prd`** (located at [.agents/skills/to-prd](.agents/skills/to-prd/SKILL.md)): Use this to synthesize a feature design and publish it as an issue to the tracker.
+   - **`whatsapp-to-content`** (located at [.agents/skills/whatsapp-to-content](.agents/skills/whatsapp-to-content/SKILL.md)): Mine `scripts/out.txt` into services/guides Markdown after a WhatsApp export is processed with `scripts/update_out.py`.
    - **`improve-codebase-architecture`** (located at [.agents/skills/improve-codebase-architecture](.agents/skills/improve-codebase-architecture/SKILL.md)): Use this to find refactoring opportunities or restructure tightly-coupled components.
 
 3. **Verify the Build**:
