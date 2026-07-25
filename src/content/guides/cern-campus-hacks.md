@@ -1,8 +1,8 @@
 ---
 title: "CERN Campus Amenities and Life Hacks"
-description: "Tips for using the Point 5 shuttle, locating showers, getting free bike gear, and finding quiet call rooms."
+description: "Tips for using the Point 5 shuttle, Campus app schedules, showers, free bike gear, and quiet call rooms."
 category: "Admin"
-lastUpdated: "2026-06-07"
+lastUpdated: "2026-07-25"
 ---
 
 Navigating the large CERN campus efficiently requires knowing a few local "hacks" and hidden amenities.
@@ -14,6 +14,10 @@ For interns working at CMS Point 5 (in Cessy, France), public transport options 
 - **CERN Shuttle**: The official CERN shuttle to Point 5 (**Circuit 3**) only runs **3 times a day**.
 - **Carpooling / Vehicles**: Renting a car or carpooling is highly recommended. Supervisors can sometimes arrange a CERN vehicle for work-related trips.
 - **Rule**: CERN-branded vehicles are strictly for work purposes. Using them for personal errands (e.g., shopping at Intermarché) can lead to disciplinary action.
+
+## Shuttle schedules (Meyrin–Prévessin and more)
+
+For the most up-to-date internal shuttle times (including Meyrin–Prévessin), check the **CERN Campus** mobile app — schedules are posted there.
 
 ## Showers on Campus
 

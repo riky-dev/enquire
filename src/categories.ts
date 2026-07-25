@@ -10,4 +10,8 @@ export const serviceCategories: Record<string, string> = {
   plumbing: "Plumbing",
   "leisure-sports": "Leisure & Sports",
   hiking: "Hiking",
+  dentists: "Dentists",
+  vets: "Veterinarians",
+  shopping: "Shopping",
+  printing: "Printing",
 };

@@ -1,8 +1,8 @@
 ---
 title: "Legitimation Card Survival Guide"
-description: "Essential procedures for lost or stolen legitimation cards and dealing with airline boarding rejections."
+description: "Essential procedures for lost or stolen legitimation cards, French card pickup, and airline boarding rejections."
 category: "Admin"
-lastUpdated: "2026-06-07"
+lastUpdated: "2026-07-25"
 ---
 
 Your Swiss/French legitimation card is your official residence and work permit while at CERN. Losing it or having it stolen can lead to significant administrative hurdles.
@@ -13,6 +13,10 @@ Due to Swiss bureaucracy, there is a massive difference in how replacement cards
 
 - **Stolen Abroad**: If you report the card as stolen, the CERN Cards Service requires a **police report from the country where the theft occurred**. If you do not get one before returning to Switzerland, you may face a bureaucratic trap where they refuse to issue a replacement without you returning to that country to file a report.
 - **Workaround / Recommendation**: If you lose your card abroad and cannot get a local police report immediately, **always report it as "lost" rather than "stolen"** to bypass the local police report requirement.
+
+## French legitimation card delivery
+
+When your French legitimation card is ready, you typically receive an **email**, then pick it up at **Building 33**.
 
 ## Airline Boarding Rejections
 
