@@ -43,7 +43,7 @@ const jsonLd = {
 
 <Layout
   title={title}
-  description={`Details and newcomer hacks for ${title} (${formatCategory(category)})`}
+  description={`Notes on ${title} (${formatCategory(category)}): what people around CERN say about it.`}
 >
   <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   <div class="detail-container">
@@ -65,7 +65,7 @@ const jsonLd = {
     <div class="detail-grid">
       <!-- Left: Markdown Content / Description -->
       <section class="content-card" aria-label="Service Details">
-        <h2 class="section-title">Newcomer Review & Hacks</h2>
+        <h2 class="section-title">Notes & tips</h2>
         <div class="markdown-content prose">
           <Content />
         </div>
@@ -148,8 +148,8 @@ const jsonLd = {
         }
 
         <div class="suggest-section">
-          <span class="info-label">Contribute</span>
-          <p class="suggest-text">Know another great local place?</p>
+          <span class="info-label">Got another one?</span>
+          <p class="suggest-text">Know a place worth adding?</p>
           <a href="/suggest" class="suggest-link-btn" id="btn-suggest-from-detail">
             Suggest a Place
           </a>
@@ -159,7 +159,7 @@ const jsonLd = {
 
     <!-- Giscus Comments Section -->
     <div class="comments-section">
-      <h2 class="comments-title">Community Reviews & Suggestions</h2>
+      <h2 class="comments-title">Comments</h2>
       <p class="comments-desc">
         Have you visited this place? Leave a review or add helpful tips/hacks below to help other
         CERN newcomers!

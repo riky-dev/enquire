@@ -1,0 +1,152 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout
+  title="How Enquire is built"
+  description="How I put Enquire together: WhatsApp tips, privacy redaction, a bit of LLM help, and me checking the result before it goes live."
+>
+  <div class="about-container">
+    <header class="about-header">
+      <h1>About Enquire</h1>
+      <p class="subtitle">
+        An unofficial relocation guide for CERN newcomers. Not affiliated with CERN.
+      </p>
+    </header>
+
+    <section class="about-section" aria-labelledby="how-heading">
+      <h2 id="how-heading">How this is built</h2>
+      <p>
+        Most of the useful stuff starts in WhatsApp groups. Someone asks where to get a haircut
+        or how to open a bank account, gets a few good replies, and then it all scrolls away. I
+        built Enquire so that advice doesn't disappear.
+      </p>
+      <ol class="pipeline">
+        <li>
+          <strong>Extract.</strong> I pull the relevant bits out of chat exports.
+        </li>
+        <li>
+          <strong>Redact.</strong> Names, private numbers, and other personal data come out before
+          anything else happens.
+        </li>
+        <li>
+          <strong>Draft.</strong> An LLM helps turn the redacted notes into listings and guides,
+          and pokes holes in anything that looks sketchy or outdated.
+        </li>
+        <li>
+          <strong>Review.</strong> I read through it before it goes live, but I haven't personally
+          checked every shop or admin rule myself.
+        </li>
+      </ol>
+    </section>
+
+    <section class="about-section" aria-labelledby="caveat-heading">
+      <h2 id="caveat-heading">A few caveats</h2>
+      <p>
+        This is not official advice. Rules change, shops close, and border admin is a mess. Use
+        these pages as a head start, then double-check with CERN HR, your landlord, an insurer, or
+        the place itself when it actually matters.
+      </p>
+      <p>
+        Something wrong or outdated? Drop a comment on the page, use
+        <a href="/suggest">Suggest</a>, or open a PR on
+        <a href="https://github.com/riky-dev/enquire" target="_blank" rel="noopener noreferrer"
+          >GitHub</a
+        >.
+      </p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .about-header {
+    text-align: left;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: 0;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .about-section h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+  }
+
+  .about-section p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin: 0 0 1rem;
+  }
+
+  .about-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-section a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .about-section a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .pipeline {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  .pipeline strong {
+    color: var(--text-primary);
+  }
+
+  .pipeline a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .pipeline a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 2.25rem;
+    }
+  }
+</style>

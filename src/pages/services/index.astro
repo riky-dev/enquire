@@ -11,14 +11,13 @@ const categories = [...new Set(services.map((service) => service.data.category))
 
 <Layout
   title="Services Directory"
-  description="Browse English-speaking and CERN-recommended local service providers in the Swiss-French border area."
+  description="Local places around Pays de Gex and Geneva that newcomers actually recommend: barbers, mechanics, dentists, and the rest."
 >
   <div class="directory-container">
     <div class="directory-header">
       <h1>Services Directory</h1>
       <p class="subtitle">
-        Find community-curated, English-friendly local services and practical tips for the Pays de
-        Gex and Geneva area.
+        Places people around CERN actually go to, preferably ones where you can get by in English.
       </p>
       <div class="header-actions">
         <a href="/suggest" class="suggest-btn" id="btn-suggest-service-header"> Suggest a Place </a>
@@ -57,7 +56,7 @@ const categories = [...new Set(services.map((service) => service.data.category))
     {
       services.length === 0 ? (
         <div class="empty-state">
-          <p>No services found. Be the first to suggest one!</p>
+          <p>Nothing listed yet. Know a place worth adding?</p>
           <a href="/suggest" class="suggest-btn" id="btn-suggest-empty">
             Suggest a Place
           </a>

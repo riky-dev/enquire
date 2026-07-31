@@ -12,7 +12,7 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
 
 <Layout
   title="Guides"
-  description="Step-by-step practical guides, cross-border tips, and CERN hacks for newcomers."
+  description="How to survive the admin: banking, insurance, housing deposits, and other CERN newcomer headaches."
 >
   <div class="guides-container">
     <div class="guides-header">
@@ -29,7 +29,7 @@ const groupedGuides = groupGuidesByCategory(guides, guideCategories);
     {
       guides.length === 0 ? (
         <div class="empty-state">
-          <p>No guides found yet. Suggest one or contribute a guide!</p>
+          <p>Nothing here yet. Got a tip that should be a guide?</p>
           <a href="/suggest" class="suggest-btn" id="btn-suggest-guide-empty">
             Suggest a Guide
           </a>

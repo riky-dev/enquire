@@ -2,7 +2,7 @@
 title: "Cross-Border Banking & Currency Exchange"
 description: "Choosing between Swiss and French banking options, digital banks, and avoiding currency conversion fees."
 category: "Settling In"
-lastUpdated: "2026-07-25"
+lastUpdated: "2026-07-31"
 ---
 
 Navigating cross-border finances is one of the first major tasks for a CERN newcomer. Depending on where you choose to live, your banking options and strategies will differ.
@@ -15,8 +15,9 @@ Navigating cross-border finances is one of the first major tasks for a CERN newc
 
 - **Dukascopy**: An official Swiss digital bank. They are fully digital, accept French addresses, and work well for newcomers.
 - **UBS**: A traditional Swiss bank. They accept French residents but have poor reputation for fees and bureaucracy. There is a branch on the Meyrin site useful for short-term associates who need a Swiss account quickly.
-- **Ibani**: A specialized service that provides you with a Swiss (CH) IBAN. It automatically converts your incoming CHF salary to EUR and forwards it to your home EU bank account.
+- **[Ibani](https://www.ibani.com/en/referral?code=UmUqMFaY)**: A well-known specialized service that provides you with a Swiss (CH) IBAN. It automatically converts your incoming CHF salary to EUR and forwards it to your home EU bank account. Popular with French-side residents who mainly spend in EUR.
   - _Caveat_: This is only cost-effective if you spend most of your money in EUR. If you spend in CHF, you will lose money on double conversion (~2% fee range reported).
+  - _Note_: The link above is a referral link — signing up through it may give you (and me) a small bonus.
 
 ## Wise & Revolut
 
