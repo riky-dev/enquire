@@ -112,43 +112,42 @@ const categories = [...new Set(services.map((service) => service.data.category))
 </Layout>
 
 <script>
-  // Client-side category filtering
   const filterButtons = document.querySelectorAll(".filter-btn");
   const cards = document.querySelectorAll(".service-card");
+  const valid = new Set([...filterButtons].map((btn) => btn.getAttribute("data-category")));
+
+  function categoryFromUrl() {
+    const raw = new URLSearchParams(location.search).get("category");
+    return raw && valid.has(raw) ? raw : "all";
+  }
+
+  function apply(category: string | null = categoryFromUrl(), push = false) {
+    if (!category || !valid.has(category)) category = "all";
+
+    filterButtons.forEach((btn) => {
+      const on = btn.getAttribute("data-category") === category;
+      btn.classList.toggle("active", on);
+      btn.setAttribute("aria-pressed", String(on));
+    });
+
+    cards.forEach((card) => {
+      const show = category === "all" || card.getAttribute("data-category") === category;
+      (card as HTMLElement).style.display = show ? "" : "none";
+    });
+
+    if (!push) return;
+
+    const url = new URL(location.href);
+    if (category === "all") url.searchParams.delete("category");
+    else url.searchParams.set("category", category);
+    if (url.href !== location.href) history.pushState(null, "", url);
+  }
 
   filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // Remove active class from all buttons and add to the clicked one
-      filterButtons.forEach((b) => {
-        b.classList.remove("active");
-        b.setAttribute("aria-pressed", "false");
-      });
-      btn.classList.add("active");
-      btn.setAttribute("aria-pressed", "true");
-
-      const selectedCategory = btn.getAttribute("data-category");
-
-      cards.forEach((card) => {
-        const cardCategory = card.getAttribute("data-category");
-        const element = card as HTMLElement;
-
-        if (selectedCategory === "all" || cardCategory === selectedCategory) {
-          element.style.display = "flex";
-          // Small transition helper
-          element.style.opacity = "0";
-          element.style.transform = "translateY(8px)";
-
-          requestAnimationFrame(() => {
-            element.style.transition = "opacity 0.3s ease, transform 0.3s ease";
-            element.style.opacity = "1";
-            element.style.transform = "translateY(0)";
-          });
-        } else {
-          element.style.display = "none";
-        }
-      });
-    });
+    btn.addEventListener("click", () => apply(btn.getAttribute("data-category"), true));
   });
+  window.addEventListener("popstate", () => apply());
+  apply();
 </script>
 
 <style>
