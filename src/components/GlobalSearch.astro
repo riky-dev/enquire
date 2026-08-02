@@ -1,0 +1,523 @@
+---
+import { getCollection } from "astro:content";
+import { buildSearchIndex } from "@/search/buildIndex";
+
+const services = await getCollection("services");
+const guides = await getCollection("guides");
+const searchIndexData = buildSearchIndex(services, guides);
+---
+
+<button
+  type="button"
+  class="search-trigger search-trigger-desktop"
+  id="search-trigger"
+  aria-label="Open search"
+  aria-haspopup="dialog"
+  aria-controls="search-dialog"
+>
+  <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+    <path
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"></path>
+  </svg>
+  <span class="search-trigger-label">Search…</span>
+  <kbd class="search-kbd" id="search-kbd-hint">Ctrl K</kbd>
+</button>
+
+<button
+  type="button"
+  class="search-trigger search-trigger-mobile"
+  id="search-trigger-mobile"
+  aria-label="Open search"
+  aria-haspopup="dialog"
+  aria-controls="search-dialog"
+>
+  <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+    <path
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"></path>
+  </svg>
+</button>
+
+<dialog class="search-dialog" id="search-dialog" aria-label="Site search">
+  <div class="search-panel">
+    <div class="search-input-row">
+      <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21 21l-4.35-4.35M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"></path>
+      </svg>
+      <input
+        type="search"
+        id="search-input"
+        class="search-input"
+        placeholder="Search pages, services, guides…"
+        autocomplete="off"
+        autocorrect="off"
+        spellcheck="false"
+        aria-autocomplete="list"
+        aria-controls="search-results"
+        aria-activedescendant=""
+      />
+      <kbd class="search-kbd search-esc">Esc</kbd>
+    </div>
+    <div class="search-results" id="search-results" role="listbox" aria-label="Search results">
+    </div>
+    <p class="search-empty" id="search-empty" hidden>No matches. Try another term.</p>
+    <p class="search-hint" id="search-hint">Type to search everything on Enquire.</p>
+  </div>
+</dialog>
+
+<div id="search-index-data" hidden data-index={JSON.stringify(searchIndexData)}></div>
+
+<script>
+  import { searchIndex } from "../search/match";
+  import type { SearchItem, SearchItemType } from "../search/types";
+
+  const indexEl = document.getElementById("search-index-data");
+  const items: SearchItem[] = indexEl?.dataset.index ? JSON.parse(indexEl.dataset.index) : [];
+
+  const dialog = document.getElementById("search-dialog") as HTMLDialogElement | null;
+  const input = document.getElementById("search-input") as HTMLInputElement | null;
+  const resultsEl = document.getElementById("search-results");
+  const emptyEl = document.getElementById("search-empty");
+  const hintEl = document.getElementById("search-hint");
+  const triggers = [
+    document.getElementById("search-trigger"),
+    document.getElementById("search-trigger-mobile"),
+  ].filter(Boolean) as HTMLElement[];
+  const kbdHint = document.getElementById("search-kbd-hint");
+
+  if (kbdHint) {
+    const isMac = /Mac|iPhone|iPad/.test(navigator.platform) || navigator.userAgent.includes("Mac");
+    kbdHint.textContent = isMac ? "⌘K" : "Ctrl K";
+  }
+
+  let activeIndex = -1;
+  let currentResults: ReturnType<typeof searchIndex> = [];
+
+  const typeLabels: Record<SearchItemType, string> = {
+    page: "Page",
+    service: "Service",
+    guide: "Guide",
+  };
+
+  function openSearch() {
+    if (!dialog || !input) return;
+    if (!dialog.open) dialog.showModal();
+    input.value = "";
+    activeIndex = -1;
+    renderResults([]);
+    input.focus();
+  }
+
+  function closeSearch() {
+    if (!dialog?.open) return;
+    dialog.close();
+  }
+
+  function renderResults(results: ReturnType<typeof searchIndex>) {
+    if (!resultsEl || !emptyEl || !hintEl) return;
+    currentResults = results;
+    resultsEl.innerHTML = "";
+
+    const query = input?.value.trim() ?? "";
+    hintEl.hidden = query.length > 0;
+    emptyEl.hidden = query.length === 0 || results.length > 0;
+
+    for (let i = 0; i < results.length; i++) {
+      const item = results[i];
+      const option = document.createElement("a");
+      option.href = item.href;
+      option.className = `search-result search-result--${item.type}`;
+      option.id = `search-result-${i}`;
+      option.setAttribute("role", "option");
+      option.setAttribute("aria-selected", i === activeIndex ? "true" : "false");
+      if (i === activeIndex) option.classList.add("is-active");
+
+      option.innerHTML = `
+        <div class="search-result-top">
+          <span class="search-result-type"></span>
+          <span class="search-result-category" hidden></span>
+        </div>
+        <span class="search-result-title"></span>
+        <span class="search-result-subtitle"></span>
+        <span class="search-result-path"></span>
+      `;
+      (option.querySelector(".search-result-type") as HTMLElement).textContent =
+        typeLabels[item.type];
+      (option.querySelector(".search-result-title") as HTMLElement).textContent = item.title;
+      (option.querySelector(".search-result-subtitle") as HTMLElement).textContent =
+        item.subtitle || "";
+      (option.querySelector(".search-result-path") as HTMLElement).textContent = item.href;
+
+      const categoryEl = option.querySelector(".search-result-category") as HTMLElement;
+      if (item.category) {
+        categoryEl.hidden = false;
+        categoryEl.textContent = item.category;
+      }
+
+      option.addEventListener("mouseenter", () => {
+        activeIndex = i;
+        syncActive();
+      });
+      option.addEventListener("click", () => {
+        closeSearch();
+      });
+
+      resultsEl.appendChild(option);
+    }
+
+    syncActive();
+  }
+
+  function syncActive() {
+    if (!resultsEl || !input) return;
+    const options = resultsEl.querySelectorAll(".search-result");
+    options.forEach((el, i) => {
+      const on = i === activeIndex;
+      el.classList.toggle("is-active", on);
+      el.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    input.setAttribute(
+      "aria-activedescendant",
+      activeIndex >= 0 ? `search-result-${activeIndex}` : "",
+    );
+  }
+
+  function runSearch() {
+    if (!input) return;
+    const results = searchIndex(items, input.value, 12);
+    activeIndex = results.length > 0 ? 0 : -1;
+    renderResults(results);
+  }
+
+  function goActive() {
+    if (activeIndex < 0 || !currentResults[activeIndex]) return;
+    closeSearch();
+    window.location.href = currentResults[activeIndex].href;
+  }
+
+  for (const trigger of triggers) {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      openSearch();
+    });
+  }
+
+  dialog?.addEventListener("click", (e) => {
+    if (e.target === dialog) closeSearch();
+  });
+
+  dialog?.addEventListener("close", () => {
+    activeIndex = -1;
+  });
+
+  input?.addEventListener("input", runSearch);
+
+  input?.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (currentResults.length === 0) return;
+      activeIndex = (activeIndex + 1) % currentResults.length;
+      syncActive();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (currentResults.length === 0) return;
+      activeIndex = (activeIndex - 1 + currentResults.length) % currentResults.length;
+      syncActive();
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      goActive();
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      closeSearch();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    const meta = e.metaKey || e.ctrlKey;
+    if (meta && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+      if (dialog?.open) closeSearch();
+      else openSearch();
+    }
+  });
+</script>
+
+<style>
+  .search-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: inherit;
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .search-trigger:hover {
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .search-trigger-desktop {
+    flex: 1;
+    max-width: 280px;
+    width: min(280px, 40vw);
+    padding: 0.45rem 0.7rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    min-width: 0;
+  }
+
+  .search-trigger-label {
+    flex: 1;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .search-trigger-mobile {
+    display: none;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    padding: 0;
+    border-radius: 8px;
+  }
+
+  .search-icon {
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+
+  .search-kbd {
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+    line-height: 1.4;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .search-dialog {
+    margin: min(20vh, 8rem) auto auto;
+    padding: 0;
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    width: min(560px, calc(100vw - 2rem));
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+  }
+
+  .search-dialog::backdrop {
+    background: rgba(8, 12, 18, 0.72);
+    backdrop-filter: blur(4px);
+  }
+
+  .search-panel {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-input-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    min-width: 0;
+  }
+
+  .search-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .search-input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .search-esc {
+    flex-shrink: 0;
+  }
+
+  .search-empty,
+  .search-hint {
+    margin: 0;
+    padding: 1rem 1.1rem 1.15rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+
+  /*
+   * Result cards are created in client JS, so they do not receive Astro's
+   * scoped data attributes. Keep these selectors global.
+   */
+  :global(.search-results) {
+    max-height: min(55vh, 420px);
+    overflow-y: auto;
+    padding: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  :global(a.search-result) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.85rem 0.95rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-tertiary);
+    text-decoration: none !important;
+    color: var(--text-primary);
+    box-shadow: none;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  :global(a.search-result:visited),
+  :global(a.search-result:link),
+  :global(a.search-result:hover),
+  :global(a.search-result:active),
+  :global(a.search-result:focus) {
+    text-decoration: none !important;
+    color: var(--text-primary);
+  }
+
+  :global(a.search-result.is-active),
+  :global(a.search-result:hover) {
+    background: rgba(78, 163, 216, 0.12);
+    border-color: rgba(78, 163, 216, 0.4);
+  }
+
+  :global(.search-result-top) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+  }
+
+  :global(.search-result-type),
+  :global(.search-result-category) {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+    line-height: 1.3;
+  }
+
+  :global(.search-result-type) {
+    color: var(--accent-primary);
+    background: rgba(78, 163, 216, 0.12);
+    border: 1px solid rgba(78, 163, 216, 0.26);
+  }
+
+  :global(.search-result--guide .search-result-type) {
+    color: var(--accent-secondary);
+    background: rgba(200, 169, 99, 0.12);
+    border-color: rgba(200, 169, 99, 0.28);
+  }
+
+  :global(.search-result--page .search-result-type) {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--border-color);
+  }
+
+  :global(.search-result-category) {
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+  }
+
+  :global(.search-result-title) {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+
+  :global(a.search-result.is-active .search-result-title),
+  :global(a.search-result:hover .search-result-title) {
+    color: var(--accent-hover);
+  }
+
+  :global(.search-result-subtitle) {
+    font-size: 0.84rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  :global(.search-result-path) {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .search-trigger-desktop {
+      display: none;
+    }
+
+    .search-trigger-mobile {
+      display: inline-flex;
+    }
+
+    .search-dialog {
+      margin: 15vh auto auto;
+    }
+  }
+</style>
